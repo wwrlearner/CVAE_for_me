@@ -1,0 +1,41 @@
+GMVAE (
+  (x_encoder): EncoderRNN(
+    (input_dropout): Dropout(p=0, inplace=False)
+    (rnn): GRU(100, 64, batch_first=True, dropout=0.3, bidirectional=True)
+  ), parameters=63744
+  (decoder): DecoderRNN(
+    (input_dropout): Dropout(p=0.3, inplace=False)
+    (rnn): GRU(64, 64, batch_first=True, dropout=0.3)
+    (project): Linear(in_features=64, out_features=2, bias=True)
+  ), parameters=25090
+  (q_y_mean): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (q_y_logvar): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (post_c): Sequential (
+    (0): Linear(in_features=128, out_features=128, bias=True), weights=((128, 128), (128,)), parameters=16512
+    (1): ReLU(), weights=(), parameters=0
+    (2): Linear(in_features=128, out_features=40, bias=True), weights=((40, 128), (40,)), parameters=5160
+  ) Total Parameters=21672, parameters=21672
+  (dec_init_connector): LinearConnector(
+    (linear): Linear(in_features=10, out_features=64, bias=False)
+  ), parameters=640
+  (firing_rate): Linear(in_features=2, out_features=100, bias=True), parameters=300
+  (cat_connector): GumbelConnector(), parameters=0
+  (mse_loss): TimeSeriesLossMSE(
+    (mse_loss): MSELoss()
+  ), parameters=0
+  (cat_kl_loss): CatKLLoss(), parameters=0
+) Total Parameters=114026
+**** Training Begins ****
+**** Epoch 0/50 ****
+Flush previous valid loss
+Recovering the learning rate to 0.001
+Load previous best model
+500/2000-(0.000): Train nll 14274.421 PPL inf agg_ckl 0.090 mi 0.001 zkl 0.063 dispersion 4.019 real_zkl 4.082 real_ckl 0.091 elbo 14278.594 param_var 24.525
+1000/2000-(0.000): Train nll 14275.700 PPL inf agg_ckl 0.008 mi 0.000 zkl 0.001 dispersion 1.042 real_zkl 1.042 real_ckl 0.008 elbo 14276.750 param_var 4.112
+1500/2000-(0.000): Train nll 14274.410 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.001 dispersion 0.107 real_zkl 0.108 real_ckl 0.000 elbo 14274.518 param_var 0.337
+2000/2000-(0.000): Train nll 14274.843 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.000 dispersion 0.002 real_zkl 0.002 real_ckl 0.000 elbo 14274.845 param_var 0.009
+
+=== Evaluating Model ===
+Train nll 14274.843 PPL inf agg_ckl 0.024 mi 0.000 zkl 0.016 dispersion 1.293 real_zkl 1.309 real_ckl 0.025 elbo 14276.177 param_var 7.246
+Valid nll 1763.683 PPL inf agg_ckl 0.001 mi 0.000 zkl 0.164 dispersion 0.000 real_zkl 0.164 real_ckl 0.001 elbo 1763.848 param_var 0.000
+Total valid loss 1763.8482666015625

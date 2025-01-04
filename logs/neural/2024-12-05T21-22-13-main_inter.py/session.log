@@ -1,0 +1,29 @@
+GMVAE (
+  (x_encoder): EncoderRNN(
+    (input_dropout): Dropout(p=0, inplace=False)
+    (rnn): GRU(100, 64, batch_first=True, dropout=0.3, bidirectional=True)
+  ), parameters=63744
+  (decoder): DecoderRNN(
+    (input_dropout): Dropout(p=0.3, inplace=False)
+    (rnn): GRU(2, 64, batch_first=True, dropout=0.3)
+    (project): Linear(in_features=64, out_features=2, bias=True)
+  ), parameters=13186
+  (q_y_mean): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (q_y_logvar): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (post_c): Sequential (
+    (0): Linear(in_features=128, out_features=128, bias=True), weights=((128, 128), (128,)), parameters=16512
+    (1): ReLU(), weights=(), parameters=0
+    (2): Linear(in_features=128, out_features=40, bias=True), weights=((40, 128), (40,)), parameters=5160
+  ) Total Parameters=21672, parameters=21672
+  (dec_init_connector): LinearConnector(
+    (linear): Linear(in_features=10, out_features=64, bias=False)
+  ), parameters=640
+  (firing_rate): Linear(in_features=2, out_features=100, bias=True), parameters=300
+  (cat_connector): GumbelConnector(), parameters=0
+  (nll_loss): TimeSeriesNLLLoss(
+    (nll_loss): NLLLoss()
+  ), parameters=0
+  (cat_kl_loss): CatKLLoss(), parameters=0
+) Total Parameters=102122
+**** Training Begins ****
+**** Epoch 0/50 ****

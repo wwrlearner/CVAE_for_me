@@ -1,0 +1,154 @@
+GMVAE (
+  (x_encoder): EncoderRNN(
+    (input_dropout): Dropout(p=0, inplace=False)
+    (rnn): GRU(100, 64, batch_first=True, dropout=0.3, bidirectional=True)
+  ), parameters=63744
+  (decoder): DecoderRNN(
+    (input_dropout): Dropout(p=0.3, inplace=False)
+    (rnn): GRU(64, 64, batch_first=True, dropout=0.3)
+    (project): Linear(in_features=64, out_features=2, bias=True)
+  ), parameters=25090
+  (q_y_mean): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (q_y_logvar): Linear(in_features=128, out_features=10, bias=True), parameters=1290
+  (post_c): Sequential (
+    (0): Linear(in_features=128, out_features=128, bias=True), weights=((128, 128), (128,)), parameters=16512
+    (1): ReLU(), weights=(), parameters=0
+    (2): Linear(in_features=128, out_features=40, bias=True), weights=((40, 128), (40,)), parameters=5160
+  ) Total Parameters=21672, parameters=21672
+  (dec_init_connector): LinearConnector(
+    (linear): Linear(in_features=10, out_features=64, bias=False)
+  ), parameters=640
+  (firing_rate): Linear(in_features=2, out_features=100, bias=True), parameters=300
+  (cat_connector): GumbelConnector(), parameters=0
+  (mse_loss): TimeSeriesLossMSE(
+    (mse_loss): MSELoss()
+  ), parameters=0
+  (cat_kl_loss): CatKLLoss(), parameters=0
+) Total Parameters=114026
+**** Training Begins ****
+**** Epoch 0/50 ****
+Flush previous valid loss
+Recovering the learning rate to 0.001
+Load previous best model
+500/2000-(0.000): Train nll 14676.581 PPL inf agg_ckl 0.157 mi 0.001 zkl 0.049 dispersion 3.737 real_zkl 3.786 real_ckl 0.158 elbo 14680.525 param_var 20.671
+1000/2000-(0.000): Train nll 14681.476 PPL inf agg_ckl 0.135 mi 0.000 zkl 0.000 dispersion 0.911 real_zkl 0.911 real_ckl 0.135 elbo 14682.522 param_var 3.950
+1500/2000-(0.000): Train nll 14670.290 PPL inf agg_ckl 0.055 mi 0.000 zkl 0.000 dispersion 0.237 real_zkl 0.238 real_ckl 0.055 elbo 14670.582 param_var 1.520
+2000/2000-(0.000): Train nll 14674.101 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.000 dispersion 0.026 real_zkl 0.026 real_ckl 0.000 elbo 14674.127 param_var 0.081
+
+=== Evaluating Model ===
+Train nll 14675.612 PPL inf agg_ckl 0.087 mi 0.000 zkl 0.012 dispersion 1.228 real_zkl 1.240 real_ckl 0.087 elbo 14676.939 param_var 6.555
+Valid nll 1823.100 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.126 dispersion 0.001 real_zkl 0.127 real_ckl 0.000 elbo 1823.227 param_var 0.001
+Total valid loss 1823.227294921875
+Update patience to 10
+Model Saved.
+
+**** Epoch 1/50 ****
+499/2000-(0.000): Train nll 14675.741 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14675.741 param_var 0.000
+999/2000-(0.000): Train nll 14674.944 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.944 param_var 0.000
+1499/2000-(0.000): Train nll 14672.276 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.276 param_var 0.000
+1999/2000-(0.000): Train nll 14671.824 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14671.824 param_var 0.000
+
+=== Evaluating Model ===
+Train nll 14673.696 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.696 param_var 0.000
+Valid nll 1848.228 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.074 dispersion 0.000 real_zkl 0.074 real_ckl 0.000 elbo 1848.302 param_var 0.000
+Total valid loss 1848.3019205729167
+
+**** Epoch 2/50 ****
+498/2000-(0.000): Train nll 14672.332 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.332 param_var 0.000
+998/2000-(0.000): Train nll 14665.955 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14665.955 param_var 0.000
+1498/2000-(0.000): Train nll 14672.799 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.799 param_var 0.000
+1998/2000-(0.000): Train nll 14671.478 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14671.478 param_var 0.000
+
+=== Evaluating Model ===
+Train nll 14670.641 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion -0.000 real_zkl 0.000 real_ckl 0.000 elbo 14670.641 param_var 0.000
+Valid nll 1823.245 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.052 dispersion -0.000 real_zkl 0.052 real_ckl 0.000 elbo 1823.297 param_var 0.000
+Total valid loss 1823.2967732747395
+Adjust learning rete to 0.0008
+
+**** Epoch 3/50 ****
+497/2000-(0.000): Train nll 14675.383 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14675.383 param_var -0.000
+997/2000-(0.000): Train nll 14673.158 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.158 param_var 0.000
+1497/2000-(0.000): Train nll 14673.854 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.854 param_var 0.000
+1997/2000-(0.000): Train nll 14674.218 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.218 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14674.153 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.153 param_var -0.000
+Valid nll 1823.845 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.051 dispersion -0.000 real_zkl 0.051 real_ckl 0.000 elbo 1823.896 param_var -0.000
+Total valid loss 1823.8959554036458
+Adjust learning rete to 0.00064
+
+**** Epoch 4/50 ****
+496/2000-(0.000): Train nll 14673.916 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.916 param_var -0.000
+996/2000-(0.000): Train nll 14674.370 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.370 param_var -0.000
+1496/2000-(0.000): Train nll 14673.572 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.572 param_var -0.000
+1996/2000-(0.000): Train nll 14668.599 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14668.599 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14672.614 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.614 param_var -0.000
+Valid nll 1816.911 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.045 dispersion -0.000 real_zkl 0.045 real_ckl 0.000 elbo 1816.957 param_var -0.000
+Total valid loss 1816.956787109375
+Model Saved.
+
+**** Epoch 5/50 ****
+495/2000-(0.000): Train nll 14675.093 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14675.093 param_var -0.000
+995/2000-(0.000): Train nll 14670.837 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14670.837 param_var -0.000
+1495/2000-(0.000): Train nll 14673.498 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.498 param_var -0.000
+1995/2000-(0.000): Train nll 14665.470 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14665.470 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14671.224 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14671.224 param_var -0.000
+Valid nll 1833.928 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.043 dispersion 0.000 real_zkl 0.043 real_ckl 0.000 elbo 1833.971 param_var 0.000
+Total valid loss 1833.9705607096355
+
+**** Epoch 6/50 ****
+494/2000-(0.000): Train nll 14669.699 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14669.699 param_var -0.000
+994/2000-(0.000): Train nll 14673.982 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.982 param_var -0.000
+1494/2000-(0.000): Train nll 14676.378 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14676.378 param_var -0.000
+1994/2000-(0.000): Train nll 14673.119 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.119 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14673.294 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.294 param_var -0.000
+Valid nll 1829.400 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.041 dispersion -0.000 real_zkl 0.041 real_ckl 0.000 elbo 1829.442 param_var -0.000
+Total valid loss 1829.4415283203125
+Adjust learning rete to 0.0005120000000000001
+
+**** Epoch 7/50 ****
+493/2000-(0.000): Train nll 14670.304 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14670.304 param_var -0.000
+993/2000-(0.000): Train nll 14672.597 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.597 param_var -0.000
+1493/2000-(0.000): Train nll 14672.334 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.334 param_var -0.000
+1993/2000-(0.000): Train nll 14674.783 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.783 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14672.505 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.505 param_var -0.000
+Valid nll 1824.200 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.044 dispersion 0.000 real_zkl 0.044 real_ckl 0.000 elbo 1824.245 param_var 0.000
+Total valid loss 1824.2445475260417
+Adjust learning rete to 0.0004096000000000001
+
+**** Epoch 8/50 ****
+492/2000-(0.000): Train nll 14672.523 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.523 param_var -0.000
+992/2000-(0.000): Train nll 14672.969 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.969 param_var -0.000
+1492/2000-(0.000): Train nll 14674.719 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.719 param_var -0.000
+1992/2000-(0.000): Train nll 14673.378 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.378 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14673.397 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.397 param_var -0.000
+Valid nll 1829.795 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.043 dispersion 0.000 real_zkl 0.043 real_ckl 0.000 elbo 1829.838 param_var 0.000
+Total valid loss 1829.837910970052
+Adjust learning rete to 0.0003276800000000001
+
+**** Epoch 9/50 ****
+491/2000-(0.000): Train nll 14671.587 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14671.587 param_var -0.000
+991/2000-(0.000): Train nll 14676.999 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14676.999 param_var -0.000
+1491/2000-(0.000): Train nll 14674.245 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14674.245 param_var -0.000
+1991/2000-(0.000): Train nll 14672.078 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14672.078 param_var -0.000
+
+=== Evaluating Model ===
+Train nll 14673.727 PPL inf agg_ckl 0.000 mi -0.000 zkl 0.000 dispersion 0.000 real_zkl 0.000 real_ckl 0.000 elbo 14673.727 param_var -0.000
+Valid nll 1828.645 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.042 dispersion -0.000 real_zkl 0.042 real_ckl 0.000 elbo 1828.687 param_var -0.000
+Total valid loss 1828.6868693033855
+Adjust learning rete to 0.0002621440000000001
+!!Early stop due to run out of patience!!
+Best validation loss 1816.956787
+Test nll 1810.005 PPL inf agg_ckl 0.000 mi 0.000 zkl 0.045 dispersion -0.000 real_zkl 0.045 real_ckl 0.000 elbo 1810.050 param_var -0.000
+Total valid loss 1810.0503540039062
+Find MI for: 4 batches

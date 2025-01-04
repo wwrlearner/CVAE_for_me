@@ -1,0 +1,391 @@
+GMVAE (
+  (embedding): Embedding(10001, 512, padding_idx=0), parameters=5120512
+  (dec_embedding): Embedding(10001, 512, padding_idx=0), parameters=5120512
+  (x_encoder): EncoderRNN(
+    (input_dropout): Dropout(p=0, inplace=False)
+    (rnn): GRU(512, 512, batch_first=True, dropout=0.3, bidirectional=True)
+  ), parameters=3151872
+  (decoder): DecoderRNN(
+    (input_dropout): Dropout(p=0.3, inplace=False)
+    (rnn): GRU(552, 512, batch_first=True, dropout=0.3)
+    (embedding): Embedding(10001, 512, padding_idx=0)
+    (output_dropout): Dropout(p=0.3, inplace=False)
+  ), parameters=6757888
+  (q_y_mean): Linear(in_features=1024, out_features=40, bias=True), parameters=41000
+  (q_y_logvar): Linear(in_features=1024, out_features=40, bias=True), parameters=41000
+  (post_c): Sequential (
+    (0): Linear(in_features=1024, out_features=1024, bias=True), weights=((1024, 1024), (1024,)), parameters=1049600
+    (1): ReLU(), weights=(), parameters=0
+    (2): Linear(in_features=1024, out_features=100, bias=True), weights=((100, 1024), (100,)), parameters=102500
+  ) Total Parameters=1152100, parameters=1152100
+  (dec_init_connector): LinearConnector(
+    (linear): Linear(in_features=40, out_features=512, bias=False)
+  ), parameters=20480
+  (cat_connector): GumbelConnector(), parameters=0
+  (nll_loss): NLLEntropy(
+    (nll_loss): NLLLoss()
+  ), parameters=0
+  (cat_kl_loss): CatKLLoss(), parameters=0
+  (ppl): Perplexity(), parameters=0
+) Total Parameters=21405364
+**** Training Begins ****
+**** Epoch 0/50 ****
+Number of left over sample 8
+Train begins with 1402 batches
+Flush previous valid loss
+Recovering the learning rate to 0.001
+Load previous best model
+500/2000-(0.000): Train nll 123.179 agg_ckl 1.827 mi 2.375 zkl 80.391 dispersion 21.580 PPL 396.644 real_zkl 101.971 real_ckl 4.202 elbo 229.352 param_var 121.730
+1000/2000-(0.000): Train nll 99.806 agg_ckl 0.535 mi 5.519 zkl 69.866 dispersion 30.209 PPL 103.227 real_zkl 100.074 real_ckl 6.054 elbo 205.934 param_var 264.182
+Number of left over sample 8
+Train begins with 1402 batches
+1500/2000-(0.000): Train nll 91.421 agg_ckl 0.489 mi 7.360 zkl 44.657 dispersion 44.632 PPL 69.045 real_zkl 89.288 real_ckl 7.849 elbo 188.558 param_var 517.282
+2000/2000-(0.000): Train nll 84.333 agg_ckl 0.471 mi 8.157 zkl 25.634 dispersion 51.238 PPL 49.485 real_zkl 76.872 real_ckl 8.628 elbo 169.832 param_var 653.506
+
+=== Evaluating Model ===
+Train nll 99.685 agg_ckl 0.831 mi 5.853 zkl 55.137 dispersion 36.914 PPL 154.600 real_zkl 92.051 real_ckl 6.683 elbo 198.419 param_var 389.175
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 85.309 agg_ckl 0.858 mi 7.501 zkl 18.326 dispersion 51.012 PPL 57.968 real_zkl 69.338 real_ckl 8.358 elbo 163.005 param_var 658.747
+Total valid loss 163.005498954228
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: this time it was n't clear
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but as the new york stock exchange composite trading when the dow jones industrial average had n't seen as much as the new york stock exchange composite trading of the stock exchange
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: some big board traders say the big board in the stock market and selling their own stocks to go into the big board
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.191491
+
+Generation Done
+Generate report for default for 3 samples
+Update patience to 10
+Model Saved.
+
+**** Epoch 1/50 ****
+499/2000-(0.000): Train nll 85.012 agg_ckl 0.403 mi 7.414 zkl 13.576 dispersion 47.657 PPL 50.887 real_zkl 61.233 real_ckl 7.817 elbo 154.062 param_var 588.127
+999/2000-(0.000): Train nll 83.505 agg_ckl 0.313 mi 6.268 zkl 8.417 dispersion 39.996 PPL 47.703 real_zkl 48.413 real_ckl 6.582 elbo 138.500 param_var 457.975
+1499/2000-(0.000): Train nll 81.809 agg_ckl 0.265 mi 5.472 zkl 6.677 dispersion 35.363 PPL 44.586 real_zkl 42.040 real_ckl 5.737 elbo 129.586 param_var 375.054
+1999/2000-(0.000): Train nll 84.043 agg_ckl 0.230 mi 4.878 zkl 5.903 dispersion 31.786 PPL 47.917 real_zkl 37.688 real_ckl 5.107 elbo 126.839 param_var 323.663
+
+=== Evaluating Model ===
+Train nll 83.592 agg_ckl 0.303 mi 6.008 zkl 8.643 dispersion 38.701 PPL 47.773 real_zkl 47.344 real_ckl 6.311 elbo 137.247 param_var 436.204
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 86.940 agg_ckl 0.450 mi 4.206 zkl 5.398 dispersion 31.085 PPL 63.822 real_zkl 36.483 real_ckl 4.656 elbo 128.078 param_var 314.252
+Total valid loss 128.07844965798515
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: this was n't yet
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the new york stock exchange composite trading yesterday was n't as much as the first nine months of the N crash to take the same time in the world of the world
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board 's big board points that the big board 's big board to take the big board to take place on the market
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.110050
+
+Generation Done
+Generate report for default for 3 samples
+Update patience to 10
+Model Saved.
+
+**** Epoch 2/50 ****
+498/2000-(0.000): Train nll 79.884 agg_ckl 0.210 mi 4.669 zkl 5.874 dispersion 30.244 PPL 40.637 real_zkl 36.119 real_ckl 4.879 elbo 120.882 param_var 310.477
+998/2000-(0.000): Train nll 78.193 agg_ckl 0.201 mi 4.607 zkl 5.864 dispersion 30.592 PPL 37.131 real_zkl 36.456 real_ckl 4.809 elbo 119.458 param_var 318.457
+1498/2000-(0.000): Train nll 79.688 agg_ckl 0.194 mi 4.479 zkl 5.771 dispersion 30.208 PPL 38.952 real_zkl 35.979 real_ckl 4.673 elbo 120.340 param_var 317.829
+1998/2000-(0.000): Train nll 73.536 agg_ckl 0.195 mi 4.541 zkl 5.936 dispersion 30.286 PPL 30.579 real_zkl 36.222 real_ckl 4.736 elbo 114.494 param_var 326.413
+
+=== Evaluating Model ===
+Train nll 77.825 agg_ckl 0.200 mi 4.574 zkl 5.861 dispersion 30.333 PPL 36.825 real_zkl 36.194 real_ckl 4.774 elbo 118.794 param_var 318.294
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 85.709 agg_ckl 0.419 mi 4.065 zkl 5.675 dispersion 31.693 PPL 61.251 real_zkl 37.368 real_ckl 4.484 elbo 127.562 param_var 344.235
+Total valid loss 127.56157204083034
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i 'm not sure it was n't
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: when the company 's big board members said the new york stock exchange was closed at the end of the day of the session when it was n't exactly what the opportunity to get the back of the
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board had been buying back into the trading halt in the second quarter and then the 13th plunge in the stock market crash
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.119437
+
+Generation Done
+Generate report for default for 3 samples
+Update patience to 10
+Model Saved.
+
+**** Epoch 3/50 ****
+497/2000-(0.000): Train nll 74.017 agg_ckl 0.196 mi 4.533 zkl 5.916 dispersion 31.014 PPL 30.657 real_zkl 36.930 real_ckl 4.729 elbo 115.676 param_var 338.857
+997/2000-(0.000): Train nll 76.159 agg_ckl 0.195 mi 4.444 zkl 5.846 dispersion 30.822 PPL 33.321 real_zkl 36.669 real_ckl 4.639 elbo 117.467 param_var 341.150
+1497/2000-(0.000): Train nll 68.969 agg_ckl 0.195 mi 4.604 zkl 6.047 dispersion 31.304 PPL 24.147 real_zkl 37.352 real_ckl 4.799 elbo 111.119 param_var 357.969
+1997/2000-(0.000): Train nll 71.255 agg_ckl 0.198 mi 4.555 zkl 5.946 dispersion 31.789 PPL 27.003 real_zkl 37.735 real_ckl 4.753 elbo 113.743 param_var 365.927
+
+=== Evaluating Model ===
+Train nll 72.600 agg_ckl 0.196 mi 4.534 zkl 5.939 dispersion 31.232 PPL 28.782 real_zkl 37.171 real_ckl 4.730 elbo 114.501 param_var 350.976
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 85.349 agg_ckl 0.426 mi 3.990 zkl 5.489 dispersion 32.379 PPL 60.648 real_zkl 37.868 real_ckl 4.416 elbo 127.633 param_var 370.788
+Total valid loss 127.63302087783813
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i 'm not sure it was n't
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the dow jones industrial average plunged N points in the day the day was n't seen as a day of trading at the same time when they were interested in
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board had seen after the session and several weeks ago when the market was dragged down by a sell-off in the stock market
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.188220
+
+Generation Done
+Generate report for default for 3 samples
+
+**** Epoch 4/50 ****
+496/2000-(0.000): Train nll 71.009 agg_ckl 0.192 mi 4.536 zkl 5.960 dispersion 31.530 PPL 26.639 real_zkl 37.490 real_ckl 4.728 elbo 113.228 param_var 366.652
+996/2000-(0.000): Train nll 65.972 agg_ckl 0.196 mi 4.649 zkl 6.040 dispersion 32.209 PPL 21.316 real_zkl 38.249 real_ckl 4.846 elbo 109.067 param_var 384.749
+1496/2000-(0.000): Train nll 69.082 agg_ckl 0.197 mi 4.611 zkl 6.028 dispersion 32.417 PPL 23.831 real_zkl 38.445 real_ckl 4.808 elbo 112.336 param_var 390.753
+1996/2000-(0.000): Train nll 66.698 agg_ckl 0.195 mi 4.619 zkl 5.992 dispersion 32.230 PPL 22.403 real_zkl 38.222 real_ckl 4.813 elbo 109.734 param_var 394.374
+
+=== Evaluating Model ===
+Train nll 68.190 agg_ckl 0.195 mi 4.604 zkl 6.005 dispersion 32.097 PPL 23.547 real_zkl 38.102 real_ckl 4.799 elbo 111.091 param_var 384.132
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 86.146 agg_ckl 0.423 mi 4.033 zkl 5.622 dispersion 33.731 PPL 63.826 real_zkl 39.352 real_ckl 4.455 elbo 129.954 param_var 412.584
+Total valid loss 129.95372489520483
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i was n't sure
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the market closed down N N at a time when the close of the new york stock exchange 's plunge was n't surprised many of them
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board had been drawn into the market after the crash and then sent back to the market after a few weeks later in the afternoon
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.108169
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.0008
+
+**** Epoch 5/50 ****
+495/2000-(0.000): Train nll 63.703 agg_ckl 0.194 mi 4.732 zkl 6.089 dispersion 32.969 PPL 18.769 real_zkl 39.058 real_ckl 4.926 elbo 107.687 param_var 415.478
+995/2000-(0.000): Train nll 64.989 agg_ckl 0.198 mi 4.711 zkl 6.045 dispersion 33.314 PPL 20.298 real_zkl 39.359 real_ckl 4.909 elbo 109.257 param_var 424.975
+1495/2000-(0.000): Train nll 62.296 agg_ckl 0.197 mi 4.786 zkl 6.094 dispersion 33.368 PPL 17.793 real_zkl 39.462 real_ckl 4.983 elbo 106.741 param_var 432.522
+1995/2000-(0.000): Train nll 61.285 agg_ckl 0.199 mi 4.829 zkl 6.114 dispersion 33.964 PPL 16.862 real_zkl 40.078 real_ckl 5.028 elbo 106.391 param_var 448.128
+
+=== Evaluating Model ===
+Train nll 63.068 agg_ckl 0.197 mi 4.765 zkl 6.085 dispersion 33.404 PPL 18.430 real_zkl 39.489 real_ckl 4.961 elbo 107.519 param_var 430.276
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 86.079 agg_ckl 0.422 mi 4.120 zkl 5.637 dispersion 35.350 PPL 63.985 real_zkl 40.988 real_ckl 4.542 elbo 131.608 param_var 456.226
+Total valid loss 131.60829888071333
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i 'm not the <unk>
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the dow jones industrial average plunged N points in the day a day earlier this month when the dow jones industrial average plunged N points to N
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the merc alleged that many of the big board 's uptick rule prevents the heat from the futures market to limit their holdings in the past few weeks
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.131781
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.00064
+
+**** Epoch 6/50 ****
+494/2000-(0.000): Train nll 62.649 agg_ckl 0.195 mi 4.819 zkl 6.080 dispersion 34.062 PPL 18.088 real_zkl 40.141 real_ckl 5.014 elbo 107.804 param_var 453.162
+994/2000-(0.000): Train nll 58.120 agg_ckl 0.196 mi 4.910 zkl 6.106 dispersion 34.190 PPL 14.875 real_zkl 40.295 real_ckl 5.106 elbo 103.521 param_var 463.354
+1494/2000-(0.000): Train nll 58.953 agg_ckl 0.200 mi 4.932 zkl 6.139 dispersion 34.728 PPL 15.267 real_zkl 40.867 real_ckl 5.131 elbo 104.952 param_var 475.850
+1994/2000-(0.000): Train nll 60.440 agg_ckl 0.196 mi 4.916 zkl 6.130 dispersion 34.751 PPL 16.144 real_zkl 40.881 real_ckl 5.112 elbo 106.433 param_var 478.602
+
+=== Evaluating Model ===
+Train nll 60.040 agg_ckl 0.197 mi 4.894 zkl 6.114 dispersion 34.433 PPL 16.094 real_zkl 40.546 real_ckl 5.091 elbo 105.678 param_var 467.742
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 85.602 agg_ckl 0.438 mi 4.160 zkl 5.668 dispersion 36.242 PPL 62.667 real_zkl 41.910 real_ckl 4.598 elbo 132.110 param_var 487.651
+Total valid loss 132.10978194645472
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i was not a good thing
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the market closed friday when the dow jones industrial average plunged N points in the first half of N to N N of the new york stock exchange volume
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board 's uptick rule prevents the short interest in the s&p N futures pit and then stock-index futures to lock in the stock market
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.190293
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.0005120000000000001
+
+**** Epoch 7/50 ****
+493/2000-(0.000): Train nll 55.218 agg_ckl 0.200 mi 5.020 zkl 6.159 dispersion 34.895 PPL 12.727 real_zkl 41.054 real_ckl 5.220 elbo 101.492 param_var 490.093
+993/2000-(0.000): Train nll 56.909 agg_ckl 0.201 mi 5.018 zkl 6.149 dispersion 35.326 PPL 13.838 real_zkl 41.474 real_ckl 5.219 elbo 103.602 param_var 500.549
+1493/2000-(0.000): Train nll 57.212 agg_ckl 0.200 mi 5.018 zkl 6.141 dispersion 35.311 PPL 14.119 real_zkl 41.452 real_ckl 5.218 elbo 103.882 param_var 502.965
+1993/2000-(0.000): Train nll 54.244 agg_ckl 0.204 mi 5.093 zkl 6.150 dispersion 35.505 PPL 12.154 real_zkl 41.655 real_ckl 5.297 elbo 101.196 param_var 513.695
+
+=== Evaluating Model ===
+Train nll 55.896 agg_ckl 0.201 mi 5.037 zkl 6.150 dispersion 35.259 PPL 13.210 real_zkl 41.409 real_ckl 5.238 elbo 102.543 param_var 501.826
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 86.503 agg_ckl 0.437 mi 4.285 zkl 5.853 dispersion 37.448 PPL 65.874 real_zkl 43.302 real_ckl 4.722 elbo 134.527 param_var 527.710
+Total valid loss 134.5265757696969
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i was n't sure it 's
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the company 's big board is getting a lot of the stuff in the san francisco bay area it would be closed at more than N N of the day before the close of trading
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board 's uptick rule prevents the short interest in some sectors of buying and selling pressure on futures to N N
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.024804
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.0004096000000000001
+
+**** Epoch 8/50 ****
+492/2000-(0.000): Train nll 55.263 agg_ckl 0.202 mi 5.089 zkl 6.170 dispersion 35.748 PPL 12.975 real_zkl 41.918 real_ckl 5.291 elbo 102.473 param_var 519.103
+992/2000-(0.000): Train nll 54.845 agg_ckl 0.202 mi 5.120 zkl 6.163 dispersion 35.812 PPL 12.570 real_zkl 41.975 real_ckl 5.321 elbo 102.142 param_var 524.889
+1492/2000-(0.000): Train nll 52.977 agg_ckl 0.206 mi 5.167 zkl 6.144 dispersion 35.999 PPL 11.522 real_zkl 42.143 real_ckl 5.373 elbo 100.493 param_var 534.660
+1992/2000-(0.000): Train nll 54.424 agg_ckl 0.208 mi 5.140 zkl 6.167 dispersion 36.226 PPL 12.298 real_zkl 42.393 real_ckl 5.348 elbo 102.165 param_var 539.082
+
+=== Evaluating Model ===
+Train nll 54.377 agg_ckl 0.204 mi 5.129 zkl 6.161 dispersion 35.946 PPL 12.341 real_zkl 42.107 real_ckl 5.333 elbo 101.818 param_var 529.433
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 86.742 agg_ckl 0.446 mi 4.311 zkl 5.833 dispersion 38.074 PPL 67.026 real_zkl 43.907 real_ckl 4.757 elbo 135.406 param_var 547.792
+Total valid loss 135.4056271825518
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i was not a disaster
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the company 's big board began trading last day the day began trading at the same time when i 'm not going to take out of the market
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board 's uptick rule prevents the short interest in some sectors of buying and selling back to the stock market
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.005239
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.0003276800000000001
+
+**** Epoch 9/50 ****
+491/2000-(0.000): Train nll 52.668 agg_ckl 0.206 mi 5.190 zkl 6.159 dispersion 36.141 PPL 11.397 real_zkl 42.301 real_ckl 5.395 elbo 100.364 param_var 541.942
+991/2000-(0.000): Train nll 52.222 agg_ckl 0.209 mi 5.230 zkl 6.157 dispersion 36.415 PPL 11.031 real_zkl 42.573 real_ckl 5.439 elbo 100.234 param_var 552.133
+1491/2000-(0.000): Train nll 52.999 agg_ckl 0.210 mi 5.208 zkl 6.136 dispersion 36.547 PPL 11.647 real_zkl 42.683 real_ckl 5.419 elbo 101.100 param_var 553.855
+1991/2000-(0.000): Train nll 50.825 agg_ckl 0.208 mi 5.254 zkl 6.130 dispersion 36.483 PPL 10.560 real_zkl 42.613 real_ckl 5.462 elbo 98.900 param_var 556.896
+
+=== Evaluating Model ===
+Train nll 52.179 agg_ckl 0.208 mi 5.221 zkl 6.146 dispersion 36.396 PPL 11.159 real_zkl 42.542 real_ckl 5.429 elbo 100.150 param_var 551.206
+Number of left over sample 10
+Valid begins with 112 batches
+Valid nll 87.181 agg_ckl 0.444 mi 4.369 zkl 5.991 dispersion 38.881 PPL 68.828 real_zkl 44.872 real_ckl 4.813 elbo 136.866 param_var 575.035
+Total valid loss 136.86578246525355
+Generation: 1 batches
+Target: no it was n't black monday
+Predict: i was n't sure it 's
+
+
+Target: but while the new york stock exchange did n't fall apart friday as the dow jones industrial average plunged N points most of it in the final hour it barely managed to stay this side of chaos
+Predict: but when the company 's big board began trading last day the day began trading at the same time of N when the dow jones industrial average plunged N points to $ N in the third quarter
+
+
+Target: some circuit breakers installed after the october N crash failed their first test traders say unable to cool the selling panic in both stocks and futures
+Predict: the big board had abandoned the stock market after a few days after the opening bell and then recovered to be the worst share in the stock market
+
+
+Generate report for default for 3 samples
+
+==== REPORT ====
+Domain: default BLEU 0.150600
+
+Generation Done
+Generate report for default for 3 samples
+Adjust learning rete to 0.0002621440000000001
+!!Early stop due to run out of patience!!
+Best validation loss 127.561572
+Number of left over sample 11
+Test begins with 75 batches
+Test nll 84.655 agg_ckl 0.339 mi 4.165 zkl 5.762 dispersion 31.633 PPL 54.062 real_zkl 37.395 real_ckl 4.505 elbo 126.554 param_var 343.833
+Total valid loss 126.5542978922526
+Negative Log-likehood -107.790683
+Generation Done
+Generation: 75 batches
+Generate report for default for 3750 samples
+Generation Done
+Generate report for default for 3750 samples
