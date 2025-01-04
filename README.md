@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dispersed Exponential Family Mixture VAEs for Interpretable Text Generation
 Codebase for [Dispersed Exponential Family Mixture VAEs for Interpretable Text Generation](https://arxiv.org/abs/1906.06719).
 
@@ -98,3 +99,6 @@ You can run the following script to evaluate the word-level KL divergence betwee
     python scripts/test_wKL.py --model_dir $MODEL_DIR --data_dir data/ptb
     
 
+=======
+用于第一份工作
+>>>>>>> 2464ba68b539bdaa4fe9771b8026e7b9264edbb9
